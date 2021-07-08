@@ -10,6 +10,7 @@ function fetchDogs(){
 
 function renderDogs(data){
     data.forEach(renderDog)
+    // for each value in json data we run renderDog
 }
 
 function renderDog(data){
@@ -26,13 +27,16 @@ function renderDog(data){
     editBtn.textContent = 'Edit Dog'
 
     tr.append(name, breed, sex, editBtn)
+    // appending elements to the table
     table.append(tr)
+    // appending the new table onto the page
 
     editBtn.addEventListener('click', () => {
         let dogForm = document.querySelector('#dog-form')
         dogForm['name'].value = data.name
         dogForm['breed'].value = data.breed
         dogForm['sex'].value = data.sex
+        // this updates the edit form with our table's values
     })
 }
 
@@ -43,5 +47,6 @@ function editDog(){
         console.log(e.target.name.value)
         console.log(e.target.breed.value)
         console.log(e.target.sex.value)
+        //  currently only returns in console.log the submitted new values
     })
 }
